@@ -10,7 +10,6 @@ router.get('/', getItems)
 
 router.get('/:id', checkOrigin, getItem)
 
-//TODO: Donde recibimos data
 router.post('/', validateCreateUser, createItem)
 
 router.patch('/:id', validateCreateUser, updateItem)

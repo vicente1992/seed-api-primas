@@ -3,7 +3,6 @@ const { encrypt, compare } = require('../helpers/handleBcrypt')
 const { tokenSign } = require('../helpers/generateToken')
 
 
-//TODO: Login!
 const loginCtrl = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -13,12 +12,12 @@ const loginCtrl = async (req, res) => {
             res.send({ error: 'User not found' })
         }
 
-        const checkPassword = await compare(password, user.password) //TODO: Contraseña!
+        const checkPassword = await compare(password, user.password)
 
-        //TODO JWT 👉
-        const tokenSession = await tokenSign(user) //TODO: 2d2d2d2d2d2d2
 
-        if (checkPassword) { //TODO Contraseña es correcta!
+        const tokenSession = await tokenSign(user)
+
+        if (checkPassword) {
             res.send({
                 data: user,
                 tokenSession
@@ -39,14 +38,13 @@ const loginCtrl = async (req, res) => {
     }
 }
 
-//TODO: Registramos usuario!
 const registerCtrl = async (req, res) => {
     try {
-        //TODO: Datos que envias desde el front (postman)
+
         const { email, password, name } = req.body
 
-        const passwordHash = await encrypt(password) //TODO: (123456)<--- Encriptando!!
-     
+        const passwordHash = await encrypt(password)
+
 
         res.send({ data })
 

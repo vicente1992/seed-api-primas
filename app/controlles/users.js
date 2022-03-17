@@ -2,7 +2,7 @@ const { matchedData } = require('express-validator')
 const { httpError } = require('../helpers/handleError')
 const { PrismaClient } = require('@prisma/client')
 const { request } = require('express')
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 
 const getItems = async (req, res) => {
